@@ -1,27 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj": {}
+    "P:\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj": {}
   },
   "projects": {
-    "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj": {
+    "P:\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
+        "projectUniqueName": "P:\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
         "projectName": "BowlingCounter",
-        "projectPath": "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
-        "packagesPath": "C:\\Users\\vianney.chepeau\\.nuget\\packages\\",
-        "outputPath": "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\obj\\",
+        "projectPath": "P:\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
+        "packagesPath": "C:\\Users\\rems_\\.nuget\\packages\\",
+        "outputPath": "P:\\BowlingCounterRefacto\\BowlingCounter\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\vianney.chepeau\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rems_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "http://tfsdropserver:8082/repository/NuGet-NetCore-Official/": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +49,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

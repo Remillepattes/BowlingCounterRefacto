@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "6FFi1skEDdbfIjpU5KkWb0yCHYMRHa5W8ADKeDAmctVMtKVnpie+/MCHfjv5GLjBBv++198aQClH2DbXirLtiQ==",
+  "dgSpecHash": "hgsc18PX/Y1/8O6p3Zek5ntFs8MPofjSDiao2k+ru+kBF0nHPYa/0UytPRaK4sOMqKc0SwOAYsvcyj+m+qSy8w==",
   "success": true,
-  "projectFilePath": "C:\\ProjetPerso\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
+  "projectFilePath": "P:\\BowlingCounterRefacto\\BowlingCounter\\BowlingCounter.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1803",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "You are running the 'restore' operation with an 'HTTP' source, 'http://tfsdropserver:8082/repository/NuGet-NetCore-Official/'. Non-HTTPS access will be removed in a future version. Consider migrating to an 'HTTPS' source."
-    }
-  ]
+  "logs": []
 }

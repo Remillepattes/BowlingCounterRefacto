@@ -1,64 +1,63 @@
-﻿Console.WriteLine("**************************************");
-Console.WriteLine("*** Welcome to the Bowling Counter ***");
-Console.WriteLine("**************************************");
-Console.WriteLine("\r\n");
+﻿using BowlingCounter.Services;
+using static BowlingCounter.Entity.EGameState;
 
-Console.WriteLine("MENU : ");
-Console.WriteLine("1- Start a new game");
-Console.WriteLine("3- Exit");
-
-var choice = Console.ReadLine();
-
-if (choice == "1")
+namespace BowlingRemi
 {
-    Console.Write("Enter number of players: ");
-    int numPlayers = int.Parse(Console.ReadLine());
-
-    int[][] firstThrows = new int[numPlayers][];
-    int[][] secondThrows = new int[numPlayers][];
-
-    for (int i = 0; i < numPlayers; i++)
+    public class Program
     {
-        firstThrows[i] = new int[10];
-        secondThrows[i] = new int[10];
-    }
-
-    for (int i = 0; i < 10; i++)
-    {
-        for (int player = 0; player < numPlayers; player++)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Player " + (player + 1));
-            Console.Write("Enter first throw: ");
-            firstThrows[player][i] = int.Parse(Console.ReadLine());
-            Console.Write("Enter second throw: ");
-            secondThrows[player][i] = int.Parse(Console.ReadLine());
+            // Instance
+            var myUI = UI.GetInstance();
+            var gameManager = GameManager.GetInstance();
 
-            int totalScore = 0;
-            for (int j = 0; j <= i; j++)
+            myUI.DiplayWelcome();
+
+            // Choice menu
+            var choice = myUI.Write();
+
+            if (int.TryParse(choice, out int intChoice) == false)
+                throw new Exception("Choisi 1 ou 3 ducon");
+
+            if (intChoice == (int)GameState.Start)
             {
-                totalScore += firstThrows[player][j] + secondThrows[player][j];
-                if (j < i && firstThrows[player][j] == 10) // strike
+                myUI.HowManyPlayers();
+                gameManager.SetPlayer(myUI.WriteInt());
+
+                for (int i = 0; i < gameManager.maxLap; i++)
                 {
-                    totalScore += firstThrows[player][j + 1] + secondThrows[player][j + 1];
-                }
-                else if (firstThrows[player][j] + secondThrows[player][j] == 10) // spare
-                {
-                    totalScore += firstThrows[player][j + 1];
+                    for (int player = 0; player < gameManager.GetPlayersCount(); player++)
+                    {
+                        var currentPlayer = gameManager.GetPlayer(player);
+
+                        myUI.Play(player + 1);
+
+                        myUI.FirstThrow();
+                        int firstThrow = myUI.WriteInt();
+
+                        int secondThrow = 0;
+
+                        if (firstThrow == 10)
+                            secondThrow = 0;
+                        else
+                        {
+                            myUI.SecondThrow();
+                            secondThrow = myUI.WriteInt();
+                        }
+
+                        currentPlayer.Throws.Add(new BowlingCounter.Entity.Throw() { Id = currentPlayer.Throws.Count, FirstThrow = firstThrow, SecondThrow = secondThrow });
+
+                        gameManager.CalculateScore(currentPlayer);
+                        myUI.GetTotalScore(currentPlayer);
+
+                        myUI.GetThrowTable(currentPlayer);
+                    }
                 }
             }
-            Console.WriteLine("Total score: " + totalScore);
-
-            // Print the throws in a table
-            Console.WriteLine("Throws:");
-            for (int j = 0; j <= i; j++)
+            if (intChoice == (int)GameState.Exit)
             {
-                Console.Write("| " + firstThrows[player][j] + " " + secondThrows[player][j] + " ");
+                // ????????????
             }
-            Console.WriteLine("|");
         }
     }
-}
-if (choice == "2")
-{
-    
 }
